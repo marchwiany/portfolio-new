@@ -1,0 +1,418 @@
+[class*=-container]{
+  @include base-padding;
+  @include outer-container;
+}
+
+.subheader{
+  border-bottom: 1px solid $grey-light;
+  @include s-big;
+  @include rem(margin, 30px 0px 40px);
+  @include rem(padding-bottom, 30px);
+  font-style: italic;
+}
+
+.content-area{
+  @include media($tablet){
+    @include span-columns(7 of 12);
+    @include shift(5);
+    @include rem(margin-top, $desktop-nav-height);
+  }
+}
+
+.text-only{
+  @include media($tablet){
+    @include rem(margin-top, $desktop-nav-height);
+    @include span-columns(10 of 12);
+    @include shift(1);
+  }
+
+  @include media($tablet-landscape){
+    @include span-columns(7 of 12);
+    @include shift(2.5);
+  }
+}
+
+
+
+/*-----------------------
+Home
+-----------------------*/
+.portfolio-block{
+  @include rem(margin-top, 60px);
+  @include rem(padding, 0px 20px);
+
+  li{
+    float: left;
+    position: relative;
+    width: 100%;
+
+    @include media($tablet){
+      width: 50%;
+    }
+
+    @include media($tablet-landscape){
+      width: 33.33%;
+    }
+
+
+    &:hover{
+      figcaption{
+        @include position(absolute, 0px 0px 0px 0px);
+        display: block;
+        text-align: center;
+        opacity: 1;
+
+        &:before{
+          background-color: #F4644D;
+          content:"";
+          display: block;
+          width: 100%;
+          height: 100%;
+          opacity: 0.9;
+        }
+      }
+
+      .shift .image-block{
+        background: url('../../images/work/catharsis/cp-home.jpg') no-repeat center;
+        @include transition(all 0.3s ease-in-out);
+      }
+    }
+  }
+}
+
+.flab {
+  .image-block{
+    height: 400px;
+    background: url('../../images/work/flab/flab-cover.jpg') no-repeat center;
+    background-size: cover;
+    @include transition(all 0.3s ease-in-out);
+  }
+
+  &:hover{
+    figcaption{
+      &:before{
+        background-color: #142549 !important;
+      }
+    }
+  }
+}
+
+.catharsis {
+  .image-block{
+    height: 400px;
+    background: url('../../images/work/catharsis/cp-home.jpg') no-repeat center;
+    background-size: cover;
+    @include transition(all 0.3s ease-in-out);
+  }
+}
+
+.chicago-line {
+  .image-block{
+    height: 400px;
+    background: url('../../images/work/chicago-line/cover.jpg') no-repeat center;
+    background-size: cover;
+    @include transition(all 0.3s ease-in-out);
+  }
+
+  &:hover{
+    figcaption{
+      &:before{
+        background-color: #C70018 !important;
+      }
+    }
+  }
+}
+
+.dispute-bills {
+  .image-block{
+    height: 400px;
+    background: url('../../images/work/dispute-bills/db-case.jpg') no-repeat center;
+    background-size: cover;
+    @include transition(all 0.3s ease-in-out);
+  }
+
+  &:hover{
+    figcaption{
+      &:before{
+        background-color: #0f92cd !important;
+      }
+    }
+  }
+}
+
+.prevent-blindness {
+  .image-block{
+    height: 400px;
+    background: url('../../images/work/prevent-blindness/pb-home.jpg') no-repeat center;
+    background-size: cover;
+    @include transition(all 0.3s ease-in-out);
+  }
+
+  &:hover{
+    figcaption{
+      &:before{
+        background-color: #0AC4C4 !important;
+      }
+    }
+  }
+}
+
+.shift {
+  .image-block{
+    height: 400px;
+    background: url('../../images/work/shift/shift-mobile.jpg') no-repeat center;
+    background-size: cover;
+    @include transition(all 0.3s ease-in-out);
+  }
+
+  &:hover{
+    figcaption{
+      &:before{
+        background-color: #f54b90 !important;
+      }
+    }
+  }
+}
+
+.context-media {
+  .image-block{
+    height: 400px;
+    background: url('../../images/work/prevent-blindness/pb-home.jpg') no-repeat center;
+    background-size: cover;
+    @include transition(all 0.3s ease-in-out);
+  }
+
+  &:hover{
+    figcaption{
+      &:before{
+        background-color: #4F365B !important;
+      }
+    }
+  }
+}
+
+.whi {
+  .image-block{
+    height: 400px;
+    background: url('../../images/work/prevent-blindness/pb-home.jpg') no-repeat center;
+    background-size: cover;
+    @include transition(all 0.3s ease-in-out);
+  }
+
+  &:hover{
+    figcaption{
+      &:before{
+        background-color: #58595b !important;
+      }
+    }
+  }
+}
+
+.breakline {
+  .image-block{
+    height: 400px;
+    background: url('../../images/work/prevent-blindness/pb-home.jpg') no-repeat center;
+    background-size: cover;
+    @include transition(all 0.3s ease-in-out);
+  }
+
+  &:hover{
+    figcaption{
+      &:before{
+        background-color: #153C50 !important;
+      }
+    }
+  }
+}
+
+figcaption{
+  opacity: 0;
+  @include transition(all 0.3s ease-in-out);
+
+  .text-block{
+    @include vertical-horizontal-center;
+    width: 90%;
+    h3, p { color: $white-base; }
+  }
+
+  &:before{
+    @include transition(all 0.3s ease-in-out);
+  }
+}
+
+/*-----------------------
+Overview
+-----------------------*/
+.overview-container{
+  .text-block{
+    @include media($tablet){
+      @include span-columns(7 of 12);
+    }
+  }
+
+  .detail-block{
+    @include rem(margin-top, 30px);
+
+    @include media($tablet){
+      @include rem(margin-top, 60px);
+      @include shift(2);
+      @include span-columns(3 of 12);
+    }
+
+    h5{
+      @include rem(margin-bottom, 5px);
+    }
+
+    p{
+      @include rem(margin-bottom, 0px);
+    }
+  }
+}
+
+/*-----------------------
+Overview
+-----------------------*/
+.text-blocks-container{
+  .text-block{
+    @include media($tablet){
+      @include span-columns(6 of 12);
+    }
+
+    &:last-child{
+      @include rem(margin-top, 30px);
+
+      @include media($tablet){
+        @include rem(margin-top, 0px);
+      }
+    }
+  }
+}
+
+
+/*-----------------------
+Image Grids
+-----------------------*/
+.one-image{
+  @include rem(padding, 0 20px);
+}
+
+.two-images{
+  @include clearfix;
+  img{
+    float: left;
+    //@include rem(padding, 0px 10px 0px 20px);
+    padding: 0px 0.25% 0px 2%;
+    width: 50%;
+  }
+
+  img:nth-child(2){
+    //@include rem(padding, 0px 20px 0px 10px);
+    padding: 0px 2% 0px 0.25%;
+  }
+}
+
+.three-images{
+  @include clearfix;
+  //@include rem(margin, 0px 20px);
+
+  img{
+    float: left;
+    margin: 0px 0.5% 0px 2%;
+    width: calc(95% / 3);
+    height: inherit;
+  }
+
+  img:nth-child(2){
+    margin: 0px 0.5% 0px 0%;
+  }
+
+  img:nth-child(3){
+    margin: 0px 2% 0px 0px;
+  }
+}
+
+.spacer{
+  padding: 0.25% 0px;
+}
+
+/*-----------------------
+Results
+-----------------------*/
+.results-container{
+  li{
+    @include span-columns(4 of 12);
+
+    span{
+      display: block;
+      font-family: $primary-sans-serif;
+      font-weight: $bold;
+      @include s-giga;
+      line-height: 1;
+    }
+  }
+}
+
+/*-----------------------
+Blog Container
+-----------------------*/
+.blog-container{
+  @include media($tablet){
+    @include shift(2.5);
+    @include span-columns(7 of 12);
+  }
+
+  li{
+    @include rem(margin-top, 40px);
+
+    h2{ @include rem(margin-bottom, 0px); }
+  }
+}
+
+/*-----------------------
+About
+-----------------------*/
+
+.skills-container, .interests-container{
+  li{
+    @include media($tablet){
+      @include span-columns(6 of 12);
+      @include omega(2n);
+    }
+
+    @include media($tablet-landscape){
+      @include omega-reset(2n);
+      @include span-columns(3 of 12);
+      @include omega(4n);
+    }
+  }
+}
+
+
+h2{
+  display: inline-block;
+  position: relative;
+
+  &:after{
+    background-color: #F4644D;
+    width: calc(100% - 6px);
+    height: 27px;
+    content: "";
+    display: block;
+    position: absolute;
+    opacity: 0.1;
+    left: -6px;
+    top: 15px;
+    z-index: -1;
+  }
+}
+
+
+.accordion {
+  .submenu {
+    display: none;
+  }
+
+  .is-expanded {
+    display: block;
+  }
+}

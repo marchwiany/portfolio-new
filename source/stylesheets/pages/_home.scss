@@ -3,416 +3,210 @@
   @include outer-container;
 }
 
-.subheader{
-  border-bottom: 1px solid $grey-light;
-  @include s-big;
-  @include rem(margin, 30px 0px 40px);
-  @include rem(padding-bottom, 30px);
-  font-style: italic;
+fieldset:first-of-type{
+  @include animation(fade-in 0.8s ease-in);
 }
 
-.content-area{
-  @include media($tablet){
-    @include span-columns(7 of 12);
-    @include shift(5);
-    @include rem(margin-top, $desktop-nav-height);
-  }
+@keyframes fade-in{
+  0%{ opacity:0; }
+  100%{ opacity:1; }
 }
-
-.text-only{
-  @include media($tablet){
-    @include rem(margin-top, $desktop-nav-height);
-    @include span-columns(10 of 12);
-    @include shift(1);
-  }
-
-  @include media($tablet-landscape){
-    @include span-columns(7 of 12);
-    @include shift(2.5);
-  }
-}
-
-
 
 /*-----------------------
-Home
+Form Animation
 -----------------------*/
-.portfolio-block{
-  @include rem(margin-top, 60px);
-  @include rem(padding, 0px 20px);
+#msform {
+  margin: 153px auto 50px;
+  position: relative;
+}
 
-  li{
-    float: left;
-    position: relative;
-    width: 100%;
+#msform fieldset {
+  background: $white-base;
+  border: 0 none;
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0 5%;
+  position: absolute;
+  width: 90%;
 
-    @include media($tablet){
-      width: 50%;
-    }
+  @include media($tablet){
+    margin: 0 calc((100% - 600px)/2);
+    padding: 40px 0px;
+    width: 600px;
+  }
 
-    @include media($tablet-landscape){
-      width: 33.33%;
-    }
+}
+#msform fieldset:not(:first-of-type) {
+  display: none;
+}
 
+#msform input, #msform textarea {
+  @include appearance(none);
+  padding:5px 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  color: #2C3E50;
+  display: block;
+}
+
+#msform .action-button {
+  width: 50%;
+  background-color: $orange-base;
+  font-weight: bold;
+  color: $white-base;
+  border: 0 none;
+  border-radius: 1px;
+  cursor: pointer;
+  padding: 15px 5px;
+  margin-top: 10px;
+  @include span-columns(6 of 12);
+  outline: none;
+  @include transition(all 0.3s ease-in-out);
+  @include s-base;
+
+  &.inactive-button{
+    background-color: $grey-light;
 
     &:hover{
-      figcaption{
-        @include position(absolute, 0px 0px 0px 0px);
-        display: block;
-        text-align: center;
-        opacity: 1;
-
-        &:before{
-          background-color: #F4644D;
-          content:"";
-          display: block;
-          width: 100%;
-          height: 100%;
-          opacity: 0.9;
-        }
-      }
-
-      .shift .image-block{
-        background: url('../../images/work/catharsis/cp-home.jpg') no-repeat center;
-        @include transition(all 0.3s ease-in-out);
-      }
+      background-color: $orange-base;
     }
-  }
-}
-
-.flab {
-  .image-block{
-    height: 400px;
-    background: url('../../images/work/flab/flab-cover.jpg') no-repeat center;
-    background-size: cover;
-    @include transition(all 0.3s ease-in-out);
   }
 
   &:hover{
-    figcaption{
-      &:before{
-        background-color: #142549 !important;
-      }
-    }
-  }
-}
-
-.catharsis {
-  .image-block{
-    height: 400px;
-    background: url('../../images/work/catharsis/cp-home.jpg') no-repeat center;
-    background-size: cover;
-    @include transition(all 0.3s ease-in-out);
-  }
-}
-
-.chicago-line {
-  .image-block{
-    height: 400px;
-    background: url('../../images/work/chicago-line/cover.jpg') no-repeat center;
-    background-size: cover;
-    @include transition(all 0.3s ease-in-out);
-  }
-
-  &:hover{
-    figcaption{
-      &:before{
-        background-color: #C70018 !important;
-      }
-    }
-  }
-}
-
-.dispute-bills {
-  .image-block{
-    height: 400px;
-    background: url('../../images/work/dispute-bills/db-case.jpg') no-repeat center;
-    background-size: cover;
-    @include transition(all 0.3s ease-in-out);
-  }
-
-  &:hover{
-    figcaption{
-      &:before{
-        background-color: #0f92cd !important;
-      }
-    }
-  }
-}
-
-.prevent-blindness {
-  .image-block{
-    height: 400px;
-    background: url('../../images/work/prevent-blindness/pb-home.jpg') no-repeat center;
-    background-size: cover;
-    @include transition(all 0.3s ease-in-out);
-  }
-
-  &:hover{
-    figcaption{
-      &:before{
-        background-color: #0AC4C4 !important;
-      }
-    }
-  }
-}
-
-.shift {
-  .image-block{
-    height: 400px;
-    background: url('../../images/work/shift/shift-mobile.jpg') no-repeat center;
-    background-size: cover;
-    @include transition(all 0.3s ease-in-out);
-  }
-
-  &:hover{
-    figcaption{
-      &:before{
-        background-color: #f54b90 !important;
-      }
-    }
-  }
-}
-
-.context-media {
-  .image-block{
-    height: 400px;
-    background: url('../../images/work/prevent-blindness/pb-home.jpg') no-repeat center;
-    background-size: cover;
-    @include transition(all 0.3s ease-in-out);
-  }
-
-  &:hover{
-    figcaption{
-      &:before{
-        background-color: #4F365B !important;
-      }
-    }
-  }
-}
-
-.whi {
-  .image-block{
-    height: 400px;
-    background: url('../../images/work/prevent-blindness/pb-home.jpg') no-repeat center;
-    background-size: cover;
-    @include transition(all 0.3s ease-in-out);
-  }
-
-  &:hover{
-    figcaption{
-      &:before{
-        background-color: #58595b !important;
-      }
-    }
-  }
-}
-
-.breakline {
-  .image-block{
-    height: 400px;
-    background: url('../../images/work/prevent-blindness/pb-home.jpg') no-repeat center;
-    background-size: cover;
-    @include transition(all 0.3s ease-in-out);
-  }
-
-  &:hover{
-    figcaption{
-      &:before{
-        background-color: #153C50 !important;
-      }
-    }
-  }
-}
-
-figcaption{
-  opacity: 0;
-  @include transition(all 0.3s ease-in-out);
-
-  .text-block{
-    @include vertical-horizontal-center;
-    width: 90%;
-    h3, p { color: $white-base; }
-  }
-
-  &:before{
-    @include transition(all 0.3s ease-in-out);
+    background-color: darken($orange-base, 8%);
   }
 }
 
 /*-----------------------
-Overview
+Progress Bar
 -----------------------*/
-.overview-container{
-  .text-block{
-    @include media($tablet){
-      @include span-columns(7 of 12);
-    }
-  }
+#progressbar {
+  margin-bottom: 30px;
+  overflow: hidden;
+  @include position(absolute, -96px 0px null 0px);
 
-  .detail-block{
-    @include rem(margin-top, 30px);
-
-    @include media($tablet){
-      @include rem(margin-top, 60px);
-      @include shift(2);
-      @include span-columns(3 of 12);
-    }
-
-    h5{
-      @include rem(margin-bottom, 5px);
-    }
-
-    p{
-      @include rem(margin-bottom, 0px);
-    }
-  }
-}
-
-/*-----------------------
-Overview
------------------------*/
-.text-blocks-container{
-  .text-block{
-    @include media($tablet){
-      @include span-columns(6 of 12);
-    }
-
-    &:last-child{
-      @include rem(margin-top, 30px);
-
-      @include media($tablet){
-        @include rem(margin-top, 0px);
-      }
-    }
-  }
-}
-
-
-/*-----------------------
-Image Grids
------------------------*/
-.one-image{
-  @include rem(padding, 0 20px);
-}
-
-.two-images{
-  @include clearfix;
-  img{
-    float: left;
-    //@include rem(padding, 0px 10px 0px 20px);
-    padding: 0px 0.25% 0px 2%;
-    width: 50%;
-  }
-
-  img:nth-child(2){
-    //@include rem(padding, 0px 20px 0px 10px);
-    padding: 0px 2% 0px 0.25%;
-  }
-}
-
-.three-images{
-  @include clearfix;
-  //@include rem(margin, 0px 20px);
-
-  img{
-    float: left;
-    margin: 0px 0.5% 0px 2%;
-    width: calc(95% / 3);
-    height: inherit;
-  }
-
-  img:nth-child(2){
-    margin: 0px 0.5% 0px 0%;
-  }
-
-  img:nth-child(3){
-    margin: 0px 2% 0px 0px;
-  }
-}
-
-.spacer{
-  padding: 0.25% 0px;
-}
-
-/*-----------------------
-Results
------------------------*/
-.results-container{
-  li{
-    @include span-columns(4 of 12);
-
-    span{
-      display: block;
-      font-family: $primary-sans-serif;
-      font-weight: $bold;
-      @include s-giga;
-      line-height: 1;
-    }
-  }
-}
-
-/*-----------------------
-Blog Container
------------------------*/
-.blog-container{
   @include media($tablet){
-    @include shift(2.5);
-    @include span-columns(7 of 12);
+    @include position(absolute, -58px 0px null 0px);
   }
 
-  li{
-    @include rem(margin-top, 40px);
+  li {
+    list-style-type: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 9px;
+    width: calc(100%/15);
+    float: left;
+    position: relative;
+  }
+}
 
-    h2{ @include rem(margin-bottom, 0px); }
+#progressbar li:after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: $white-med;
+  left: -50%;
+  top: 9px;
+  z-index: -1; /*put it behind the numbers*/
+}
+
+#progressbar li.active:before,  #progressbar li.active:after{
+  background: $orange-base;
+  color: white;
+}
+
+
+
+/*-----------------------
+Special Question Layouts
+-----------------------*/
+p{
+  display: inline-block;
+  width: 100%;
+}
+
+hr{
+  border: none;
+  border-top: 1px solid $grey-light;
+}
+
+fieldset{
+  h5{
+    color: $grey-base;
+    @include rem(margin-bottom, 8px);
+  }
+
+  h3 span{
+    @include s-small;
   }
 }
 
 /*-----------------------
-About
+Contact
 -----------------------*/
-
-.skills-container, .interests-container{
-  li{
-    @include media($tablet){
-      @include span-columns(6 of 12);
-      @include omega(2n);
-    }
-
-    @include media($tablet-landscape){
-      @include omega-reset(2n);
-      @include span-columns(3 of 12);
-      @include omega(4n);
-    }
-  }
-}
-
-
-h2{
+.contact-block{
   display: inline-block;
-  position: relative;
+  @include rem(margin, 20px 0px);
+}
 
-  &:after{
-    background-color: #F4644D;
-    width: calc(100% - 6px);
-    height: 27px;
-    content: "";
-    display: block;
-    position: absolute;
-    opacity: 0.1;
-    left: -6px;
-    top: 15px;
-    z-index: -1;
+.point-of-contact{
+  border-radius: 20em;
+  @include span-columns(3 of 12);
+
+  @include media($tablet){
+    @include span-columns(4 of 12);
   }
 }
 
+.contact-info{
+  @include span-columns(9 of 12);
 
-.accordion {
-  .submenu {
-    display: none;
+  @include media($tablet){
+    @include rem(margin-top, 20px);
+    @include span-columns(7 of 12);
+    @include shift(1);
+  }
+}
+
+/*-----------------------
+Upload
+-----------------------*/
+.upload{
+  .statement-icon{
+    display: block;
+    margin: 20px auto 0px;
+    text-align: center;
+    width: 60px;
   }
 
-  .is-expanded {
-    display: block;
+  h5.orange{
+    color: $orange-base;
+    text-align: center;
+    @include rem(margin, 10px 0px 20px);
+  }
+
+  .next{
+    @include horizontal-center;
+  }
+}
+
+.skip-link{
+  @include rem(margin-top, 80px);
+  text-align: center;
+}
+
+/*-----------------------
+Success
+-----------------------*/
+.success{
+  h5, h3{
+    text-align: center;
+  }
+
+  .next{
+    @include horizontal-center;
   }
 }

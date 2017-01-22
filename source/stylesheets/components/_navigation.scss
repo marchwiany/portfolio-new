@@ -1,18 +1,18 @@
 // Site Navigation Styles
 // ========================================
-$mobile-nav-height: 58px;
+$mobile-nav-height: 65px;
 $desktop-nav-height: 81px;
 
 .navigation {
-  //box-shadow: 0 3px 10px rgba(0,0,0,0.1);
   background-color: $white-base;
-  @include rem(padding, 20px 20px);
+  display: inline-block;
+  @include rem(padding, 10px 20px);
   position: relative;
   text-align: center;
   width: 100%;
 
-  &.active{
-    background-color: $grey-dark;
+  @include media($tablet){
+    @include rem(padding, 20px 20px);
   }
 }
 
@@ -22,14 +22,47 @@ Logo
 -----------------------*/
 .logo{
   @include rem(margin-bottom, 0px);
-  text-transform: uppercase;
+  @include transition(all 0.3s ease-in-out);
 
-  @include media($tablet) {
+  @include media($tablet){
     float: left;
+    text-align: left;
   }
 
-  a{
+  h1{
+    color: $grey-base;
+    @include s-small;
+    @include rem(margin, 8px 0px);
+
+    @include media($tablet){
+     @include s-bigger;
+    }
+  }
+}
+
+/*-----------------------
+Secure Nav
+-----------------------*/
+.nav-block.secure-block{
+  @include rem(margin, 5px 0px 0px);
+  padding: 0px;
+
+  @include media($tablet){
+   @include rem(margin, 12px 0px 0px);
+  }
+
+  .lock{
+    display: inline-block;
+    @include rem(margin-right, 5px);
+    opacity: 0.5;
+    width: 15px;
     vertical-align: sub;
+  }
+
+  h5{
+    color: $grey-base;
+    display: inline-block;
+    @include s-tiny;
   }
 }
 
@@ -37,115 +70,82 @@ Logo
 Primary Nav
 -----------------------*/
 .navigation{
-  @include position(fixed, 0 null null null);
+  border-bottom: 1px solid $white-med;
+  @include position(absolute, 0px 0px null 0px);
   @include transition(all 0.3s ease-in-out);
-
   width: 100%;
-  z-index: 9999;
+  z-index: 9;
 
-  .navigation-menu{
+  .callout-block{
     text-align: right;
-    float: right;
-    @include mobile-hide;
-  }
 
-  li {
-    display: inline-block;
-    @include rem(margin, 0 0 0 25px);
-    text-transform: uppercase;
-    vertical-align: -webkit-baseline-middle;
+    p{
+      display: inline-block;
+      @include s-small;
+      margin-bottom: 0px;
+      vertical-align: 5px;
+      width: inherit;
+    }
 
-    a{
+    h5{
       color: $grey-base;
-      font-weight: $light;
-      @include s-base;
-      letter-spacing: 1px;
+      @include rem(margin-top, 3px);
     }
   }
+}
+
+.nav-block{
+  @include media($tablet){
+    display: inline-block;
+    @include rem(margin-right, 20px);
+    @include rem(padding-right, 20px);
+  }
+}
+
+.side-panel{
+  display: none;
+
+  @include media($tablet){
+    display: inline-block;
+  }
+}
+
+.finish-later{
+  display: none;
+}
+
+.arrow{
+  display: inline-block;
+  width: 24px;
+  margin-right: -27px;
+}
+
+.sliding-panel-button{
+  vertical-align: super;
 }
 
 /*-----------------------
-Mobile Nav Overlay
+Login Portal
 -----------------------*/
 
-.navigation-menu{
-  @keyframes fadeIn { to { opacity: 1; } }
-  @include animation(fadeIn .3s ease-in 1 forwards);
-  display: none;
-  opacity: 0;
+.login-portal{
+  height: 60px;
 
-  @include media($tablet) {
-    @include animation(none);
-    opacity: 1;
-    display: block;
+  @include media($tablet){
+    height: 90px;
   }
 
-  a{
-    @include media($tablet) {
-      @include s-tiny;
-      color: $grey-base;
-      letter-spacing: 1px;
-      font-weight: bold;
+  img{
+    @include rem(margin-top, 5px);
+    width: 120px;
 
-      &:hover{ color: $grey-dark; }
-    }
-
-    @include media($tablet-landscape) {
-      @include s-small;
+    @include media($tablet){
+      @include rem(margin-top, 0px);
+      width: 200px;
     }
   }
 
-  &.active{
-    background-color: rgba($black-dark, 0.95);
-    display: block;
-    height: 100%;
-    @include position(fixed, 0px null null null);
-    width: 100%;
-    z-index: 3;
-
-    .nav-link{
-      text-align: center;
-      @include s-large;
-      display: block;
-      width: 100%;
-      margin: 0;
-
-      a{
-        color: $white-base;
-        display: block;
-        @include rem(padding, 20px 0);
-
-      }
-      &:hover{
-        background-color: $white-base;
-        a:not(.button-red-base){ color: $black-base; }
-      }
-    }
+  h1{
+    margin: 0px;
   }
-}
-
-// Open and Close Buttons
-.nav-open, .nav-close{
-  cursor: pointer;
-  @include transition(all 0.3s ease-in-out);
-
-  &:hover{ opacity: 0.8; }
-  @include media($tablet) { display: none; }
-}
-
-.nav-open{
-  background-image: url('../images/sprite1.svg');
-  background-position: -330px 0;
-  background-size: 630px 30px;
-  height: 30px;
-  width: 30px;
-}
-
-.nav-open{
-  @include position(absolute, 13px 20px null null);
-  z-index: 2;
-}
-
-.nav-close{
-  @include rem(margin, 13px 20px 0 0);
 }

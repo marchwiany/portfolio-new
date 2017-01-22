@@ -12,12 +12,17 @@
 
 // Components List
 @import "components/buttons";
-@import "components/sprite";
 @import "components/footer";
 @import "components/navigation";
-@import "components/page-header";
 @import "components/forms";
-//@import "components/modal";
+@import "components/tooltip";
+@import "components/panel";
+@import "components/transition";
+@import "components/cody";
+@import "components/uploader";
+@import "components/checkmark-animation";
+@import "components/errors";
+
 
 // Page Styles
 @import "pages/home";
